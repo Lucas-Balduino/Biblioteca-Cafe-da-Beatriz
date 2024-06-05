@@ -1,7 +1,27 @@
-.header{
+nav{
     display: flex;
-
+    justify-content: space-between;
+    padding: 5px;
 }
-.body{
-    background-color: beige;
+.containerSignIn{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.containerSignUp{
+    display: flex;
+    align-items: center;
+}
+.containerSign{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.fontNav{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}
+a {
+    text-decoration: none;
+    color: black;
 }
