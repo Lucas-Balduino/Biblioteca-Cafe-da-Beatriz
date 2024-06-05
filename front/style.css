@@ -1,9 +1,13 @@
-nav{
+nav {
     display: flex;
-    justify-content: space-between;
     padding: 5px;
+    background-color: #C0B5AB;
+    height: 360px;
+    align-items: center;
+    justify-content: center;
 }
-.containerSignIn{
+
+/* .containerSignIn{
     display: flex;
     align-items: center;
     margin-right: 20px;
@@ -16,12 +20,49 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-}
-.fontNav{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: large;
-}
+} */
 a {
     text-decoration: none;
     color: black;
+}
+.fontNav {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}
+
+#Kayna {
+    color: #5D412E;
+    font-size: 128px;
+}
+
+#bookstore {
+    color: #FFF4EB;
+    position: absolute;
+    top: 240px;
+    right: 255px;
+    font-size: 25px;
+}
+
+#IconeEstrela {
+    height: 40px;
+    position: absolute;
+    top: 225px;
+    right: 200px;
+    color: #FFF4EB;
+}
+
+main{
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#wishlistContainer{
+    height: 100px;
+    width: 220px;
+    background-color: #5D412E;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
