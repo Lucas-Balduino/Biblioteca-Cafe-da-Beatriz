@@ -1,108 +1,77 @@
+body {
+    background-image: url('Icones/imagemApi.jpeg');
+    background-size: cover;
+    background-position: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #FFF4EB;
+}
+
 nav {
     display: flex;
     padding: 5px;
-    background-color: #C0B5AB;
-    height: 360px;
+    background-color: rgba(192, 181, 171);
+    height: 100px;
     align-items: center;
     justify-content: center;
-}
-
-.containerSignIn{
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-.containerSignUp{
-    display: flex;
-    align-items: center;
-}
-.containerSign{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-} 
-a {
-    text-decoration: none;
-    color: black;
-}
-.fontNav {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: large;
 }
 
 #Kayna {
     color: #5D412E;
-    font-size: 128px;
-    position: absolute;
-    top: 2px;
-    right: 500px;
+    font-size: 64px;
+    position: relative;
 }
 
-#bookstore {
-    color: #FFF4EB;
-    position: absolute;
-    top: 240px;
-    right: 255px;
-    font-size: 25px;
-}
-
-#IconeEstrela {
-    height: 40px;
-    position: absolute;
-    top: 225px;
-    right: 200px;
-    color: #FFF4EB;
-}
-
-main{
-    border-radius: 50px;
+main {
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-#wishlistContainer{
-    height: 100px;
-    width: 220px;
-    background-color: #5D412E;
-    border-radius: 50px;
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-color: #FFF4EB;
-font-size:xx-large;
-    
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(93, 65, 46);
+    margin: 20px;
 }
 
-nav{
+#wishlistContainer {
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+    width: 100%;
 }
-.containerSignIn{
+
+#tableContainer, #formContainer {
+    background-color: #5D412E;
+    border-radius: 20px;
+    padding: 20px;
+    width: 45%;
+}
+
+#wishlistTable {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+#wishlistTable th, #wishlistTable td {
+    border: 1px solid #FFF4EB;
+    padding: 10px;
+    text-align: left;
+}
+
+form {
     display: flex;
-    align-items: center;
-    margin-right: 20px;
+    flex-direction: column;
 }
-.containerSignUp{
-    display: flex;
-    align-items: center;
+
+form input, form button {
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
 }
-.containerSign{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.fontNav{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+form button {
+    background-color: #C0B5AB;
+    color: #5D412E;
     font-size: large;
+    cursor: pointer;
 }
-a {
-    text-decoration: none;
-    color: black;
-}
-body {
-    background-image: url('img/imagemApi.jpeg');
-    background-color: #cccccc;
-   }
