@@ -1,0 +1,108 @@
+nav {
+    display: flex;
+    padding: 5px;
+    background-color: #C0B5AB;
+    height: 360px;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerSignIn{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.containerSignUp{
+    display: flex;
+    align-items: center;
+}
+.containerSign{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+} 
+a {
+    text-decoration: none;
+    color: black;
+}
+.fontNav {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}
+
+#Kayna {
+    color: #5D412E;
+    font-size: 128px;
+    position: absolute;
+    top: 2px;
+    right: 500px;
+}
+
+#bookstore {
+    color: #FFF4EB;
+    position: absolute;
+    top: 240px;
+    right: 255px;
+    font-size: 25px;
+}
+
+#IconeEstrela {
+    height: 40px;
+    position: absolute;
+    top: 225px;
+    right: 200px;
+    color: #FFF4EB;
+}
+
+main{
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#wishlistContainer{
+    height: 100px;
+    width: 220px;
+    background-color: #5D412E;
+    border-radius: 50px;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+color: #FFF4EB;
+font-size:xx-large;
+    
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+.containerSignIn{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.containerSignUp{
+    display: flex;
+    align-items: center;
+}
+.containerSign{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.fontNav{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+body {
+    background-image: url('img/imagemApi.jpeg');
+    background-color: #cccccc;
+   }
