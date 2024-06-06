@@ -4,11 +4,18 @@ import (
 	"database/sql"
 )
 
-func ConnectToDatabase() *sql.DB {
+var DB *sql.DB // vai ser usado por todos, sera aberto uma vez apenas
+
+func ConnectToDatabase() {
 	connection := "user=root dbname=databasezuda password=root host=localhost sslmode=disable"
-	db, err := sql.Open("databasezuda", connection)
+
+	DB, err := sql.Open("databasezuda", connection)
 	if err != nil {
 		panic(err.Error())
 	}
-	return db
+
+	err = DB.Ping()
+	if err != nil {
+		panic(err.Error())
+	}
 }

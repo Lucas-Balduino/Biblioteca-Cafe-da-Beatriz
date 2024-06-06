@@ -1,119 +1,63 @@
 package models
 
-import "biblioteca/database"
+import (
+	"biblioteca/database"
+)
 
-type Produto struct {
+type Livro struct {
 	Id         int
 	Nome       string
-	Descricao  string
-	Preco      float64
+	Autor      string
 	Quantidade int
+	Preco      float64
 }
 
-func BuscarProdutos() []Produto {
-
-	db := database.ConnectToDatabase()
-
-	allProdutos, err := db.Query("select * from produtos order by id asc")
+func SearchLivro() ([]Livro, error) {
+	allLivros, err := database.DB.Query("SELECT * FROM livros ORDER BY id ASC")
 	if err != nil {
-		panic(err.Error())
+		return nil, err
 	}
 
-	p := Produto{}
-	produtos := []Produto{}
+	livros := []Livro{}
 
-	for allProdutos.Next() {
-		var id, quantidade int
-		var nome, descricao string
-		var preco float64
-
-		err = allProdutos.Scan(&id, &nome, &descricao, &preco, &quantidade)
-		if err != nil {
-			panic(err.Error())
+	for allLivros.Next() {
+		var l Livro
+		err = allLivros.Scan(&l.Id, &l.Nome, &l.Autor, &l.Quantidade, &l.Preco)
+		if err != nil { // checa por erro no scan antes de dar append
+			return nil, err
 		}
-
-		p.Id = id
-		p.Nome = nome
-		p.Descricao = descricao
-		p.Preco = preco
-		p.Quantidade = quantidade
-
-		produtos = append(produtos, p)
+		livros = append(livros, l)
 	}
 
-	defer db.Close()
-	return produtos
+	defer allLivros.Close()
+
+	return livros, nil
 }
 
-func CreateProdict(nome, descricao string, preco float64, quantidade int) {
-	db := database.ConnectToDatabase()
-
-	insereDadosNoBanco, err := db.Prepare("insert into produtos(nome, descricao, preco, quantidade) values($1, $2, $3, $4)")
+func CreateLivro(nome, autor string, quantidade int, preco float64) error {
+	stmt, err := database.DB.Prepare("INSERT INTO livros (nome, descricao, preco, quantidade) VALUES(?,?,?,?)") // stmt vulgo statement eh a query preparada
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 
-	insereDadosNoBanco.Exec(nome, descricao, preco, quantidade)
-	defer db.Close()
-}
-func DeleteProduct(id string) {
-	db := database.ConnectToDatabase()
-
-	delete, err := db.Prepare("delete from produtos where id=$1")
-
+	_, err = stmt.Exec(nome, autor, quantidade, preco)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 
-	delete.Exec(id)
+	defer stmt.Close()
 
-	defer db.Close()
+	return nil
 }
 
-func EditProduct(id string) Produto {
-	db := database.ConnectToDatabase()
-
-	productDB, err := db.Query("select * from produtos where id=$1", id)
-
+func DeleteLivro(id string) error {
+	stmt, err := database.DB.Prepare("DELETE FROM livros WHERE id = $1") // stmt vulgo statement eh a query preparada
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 
-	productUpdate := Produto{}
+	defer stmt.Close()
 
-	for productDB.Next() {
-		var id, quantidade int
-		var nome, descricao string
-		var preco float64
-
-		err = productDB.Scan(&id, &nome, &descricao, &preco, &quantidade)
-
-		if err != nil {
-			panic(err.Error())
-		}
-
-		productUpdate.Id = id
-		productUpdate.Nome = nome
-		productUpdate.Descricao = descricao
-		productUpdate.Preco = preco
-		productUpdate.Quantidade = quantidade
-	}
-
-	defer db.Close()
-
-	return productUpdate
-}
-
-func UpdateProduct(id int, nome, descricao string, preco float64, quantidade int) {
-	db := database.ConnectToDatabase()
-
-	updateProduct, err := db.Prepare("update produtos set nome=$1, descricao=$2, preco=$3, quantidade=$4 where id=$5")
-
-	if err != nil {
-		panic(err.Error())
-	}
-
-	updateProduct.Exec(nome, descricao, preco, quantidade, id)
-
-	defer db.Close()
+	_, err = stmt.Exec(id)
+	return err
 }

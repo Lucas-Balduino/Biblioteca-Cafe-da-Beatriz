@@ -1,12 +1,13 @@
 package routes
 
 import (
+	"biblioteca/controllers"
 	"net/http"
 )
 
-func Rotas() {
-	http.HandleFunc("/", index)
-	http.HandleFunc("/inserir", inserir)
-	http.HandleFunc("/deletar", deletar)
-	http.HandleFunc("/editar", editar)
+func SetupRoutes() {
+	http.HandleFunc("/", controllers.Index)
+	http.HandleFunc("/create", controllers.Create)
+	http.HandleFunc("/insert", controllers.Insert)
+	http.HandleFunc("/delete", controllers.Delete)
 }
