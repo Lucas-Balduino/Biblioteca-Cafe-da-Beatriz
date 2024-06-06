@@ -64,9 +64,8 @@ body {
 #KaynaMain {
     color: #5D412E;
     font-size: 128px;
-    top: 2px;
-    right: 500px;
     margin: 0;
+    position: relative;
 }
 #KaynaContainer{
     
@@ -85,8 +84,8 @@ body {
 #bookstore {
     color: #FFF4EB;
     position: absolute;
-    top: 35%;
-    right: 37%;
+    top: 27%;
+    right: 38%;
     font-size: 25px;
     margin: 0;
 }
@@ -94,8 +93,8 @@ body {
 #IconeEstrela {
     height: 40px;
     position: absolute;
-    top: 30%;
-    right: 33%;
+    top: 22%;
+    right: 36%;
     color: #FFF4EB;
 }
 
