@@ -1,11 +1,11 @@
 package main
+
 import (
-	"aplicacao-web/routes"
+	"biblioteca/routes"
 	"net/http"
 )
 
-func main(){
+func main() {
 	routes.Rotas()
-	http.ListenAndServe("https://lucas-balduino.github.io/Biblioteca-Cafe-da-Beatriz/", nil)
+	http.ListenAndServe(":8000", nil)
 }
-

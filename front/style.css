@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-nav {
+.navMainPage {
     display: flex;
     padding: 5px;
     background-color: #C0B5AB;
@@ -8,91 +7,175 @@ nav {
     justify-content: center;
 }
 
-/* .containerSignIn{
+.navWishList {
+    display: flex;
+    padding: 5px;
+    background-color: rgba(192, 181, 171);
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+.mainWishList {
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(93, 65, 46);
+    margin: 20px;
+}
+
+body {
+    background-image: url('Icones/imagemApi.jpeg');
+    background-size: cover;
+    background-position: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #FFF4EB;
+}
+/* 
+.containerSignIn {
     display: flex;
     align-items: center;
     margin-right: 20px;
 }
-.containerSignUp{
+
+.containerSignUp {
     display: flex;
     align-items: center;
 }
-.containerSign{
+
+.containerSign {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
 } */
-a {
-    text-decoration: none;
-    color: black;
+
+#VoltarWishList{
+    position: absolute;
+    left: 5%;
 }
+
 .fontNav {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
 }
 
-#Kayna {
+#KaynaMain {
     color: #5D412E;
     font-size: 128px;
+    top: 2px;
+    right: 500px;
+    margin: 0;
 }
+#KaynaContainer{
+    
+}
+#bookstoreContainer{
+
+}
+
+#KaynaWishList {
+    color: #5D412E;
+    font-size: 64px;
+    position: relative;
+}
+
 
 #bookstore {
     color: #FFF4EB;
     position: absolute;
-    top: 240px;
-    right: 255px;
+    top: 35%;
+    right: 37%;
     font-size: 25px;
+    margin: 0;
 }
 
 #IconeEstrela {
     height: 40px;
     position: absolute;
-    top: 225px;
-    right: 200px;
+    top: 30%;
+    right: 33%;
     color: #FFF4EB;
 }
 
-main{
+#tableContainer,
+#formContainer {
+    background-color: #5D412E;
+    border-radius: 20px;
+    padding: 20px;
+    width: 45%;
+}
+
+main {
     border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#wishlistContainer{
-    height: 100px;
+
+#MainPageWishlistContainer {
+    /* height: 100px; */
     width: 220px;
     background-color: #5D412E;
     border-radius: 50px;
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #FFF4EB;
+    font-size: xx-large;
+
 }
-=======
-nav{
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-}
-.containerSignIn{
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-.containerSignUp{
-    display: flex;
-    align-items: center;
-}
-.containerSign{
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.fontNav{
+
+.fontNav {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
 }
+
 a {
     text-decoration: none;
     color: black;
 }
->>>>>>> df5f4ef6a99810e18dd6c1cf6d530cf2223ac702
+
+body {
+    background-image: url('Icones/imagemApi.jpeg');
+    background-color: #cccccc;
+}
+
+form input,
+form button {
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #C0B5AB;
+    color: #5D412E;
+    font-size: large;
+    cursor: pointer;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+#wishlistTable th,
+#wishlistTable td {
+    border: 1px solid #FFF4EB;
+    padding: 10px;
+    text-align: left;
+}
+#wishlistTable {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+#wishlistContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
