@@ -5,26 +5,17 @@
     height: 360px;
     align-items: center;
     justify-content: center;
+    border-radius: 10px;
+
 }
 
-.navWishList {
-    display: flex;
-    padding: 5px;
-    background-color: rgba(192, 181, 171);
-    height: 100px;
-    align-items: center;
-    justify-content: center;
-}
-.mainWishList {
-    border-radius: 20px;
+#TextContainerMainPage {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 20px;
-    background-color: rgba(93, 65, 46);
-    margin: 20px;
 }
+
 
 body {
     background-image: url('Icones/imagemApi.jpeg');
@@ -33,17 +24,26 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #FFF4EB;
 }
-/* 
+
+main {
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/*
 .containerSignIn {
     display: flex;
     align-items: center;
     margin-right: 20px;
-}
-
-.containerSignUp {
+    }
+    
+    .containerSignUp {
     display: flex;
     align-items: center;
-}
+    }
 
 .containerSign {
     display: flex;
@@ -51,7 +51,7 @@ body {
     justify-content: space-evenly;
 } */
 
-#VoltarWishList{
+#VoltarWishList {
     position: absolute;
     left: 5%;
 }
@@ -59,6 +59,7 @@ body {
 .fontNav {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
+    font-weight: bold;
 }
 
 #KaynaMain {
@@ -67,11 +68,11 @@ body {
     margin: 0;
     position: relative;
 }
-#KaynaContainer{
-    
-}
-#bookstoreContainer{
 
+#KaynaContainer {}
+
+#bookstoreContainer {
+    margin-left: 50%;
 }
 
 #KaynaWishList {
@@ -83,19 +84,58 @@ body {
 
 #bookstore {
     color: #FFF4EB;
-    position: absolute;
-    top: 27%;
-    right: 38%;
     font-size: 25px;
     margin: 0;
 }
 
 #IconeEstrela {
     height: 40px;
-    position: absolute;
-    top: 22%;
-    right: 36%;
     color: #FFF4EB;
+}
+
+#IconeEstrelaContainer {
+    margin-top: 6%;
+}
+
+#WishListFont {
+    font-size: xx-large;
+}
+
+
+#MainPageWishlistContainer {
+    /* height: 100px; */
+    width: 220px;
+    background-color: #5D412E;
+    border-radius: 50px;
+    margin-top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF4EB;
+
+}
+
+/* WishListPageCSS */
+
+.navWishList {
+    display: flex;
+    padding: 5px;
+    background-color: #C0B5AB;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.mainWishList {
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: rgba(93, 65, 46);
+    margin: 20px;
 }
 
 #tableContainer,
@@ -104,28 +144,6 @@ body {
     border-radius: 20px;
     padding: 20px;
     width: 45%;
-}
-
-main {
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#MainPageWishlistContainer {
-    /* height: 100px; */
-    width: 220px;
-    background-color: #5D412E;
-    border-radius: 50px;
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #FFF4EB;
-    font-size: xx-large;
-
 }
 
 .fontNav {
@@ -157,6 +175,7 @@ form button {
     font-size: large;
     cursor: pointer;
 }
+
 form {
     display: flex;
     flex-direction: column;
@@ -168,11 +187,13 @@ form {
     padding: 10px;
     text-align: left;
 }
+
 #wishlistTable {
     width: 100%;
     margin-bottom: 20px;
     border-collapse: collapse;
 }
+
 #wishlistContainer {
     display: flex;
     justify-content: space-between;
