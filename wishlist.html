@@ -37,7 +37,7 @@
               <td>{{.Autor}}</td>
               <td>{{.Quantidade}}</td>
               <td>{{.Preco}}</td>
-              <td><button onclick="onDelete('{{iId}}')">Remover</button></td>
+              <td><button onclick="onDelete('{{.Id}}')">Remover</button></td>
             </tr>
             {{end}}
           </tbody>
@@ -56,8 +56,8 @@
   </main>
   <script>
     function onDelete(id) {
-      let resposta = alert("Tem certeza que deseja remover o livro?")
-      if (resposta) {
+      let confirm = confirm("Tem certeza que deseja remover o livro?")
+      if (confirm) {
         window.location = "/delete?id=" + id
       }
     }

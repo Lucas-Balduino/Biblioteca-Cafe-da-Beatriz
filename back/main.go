@@ -11,7 +11,7 @@ func main() {
 	routes.SetupRoutes()
 	err := database.ConnectToDatabase()
 	if err != nil {
-		log.Fatalln("Erro ao conectar com a database: ", err)
+		log.Fatalf("Erro ao conectar com a database: %v", err)
 	}
 
 	http.ListenAndServe(":8000", nil)
