@@ -1,3 +1,5 @@
+{{define "withlist"}}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,25 +26,43 @@
               <th>Nome do Livro</th>
               <th>Autor</th>
               <th>Quantidade</th>
+              <th>Preco</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
+            {{range .}}
+            <tr>
+              <td>{{.Nome}}</td>
+              <td>{{.Autor}}</td>
+              <td>{{.Quantidade}}</td>
+              <td>{{.Preco}}</td>
+              <td><button onclick="onDelete('{{iId}}')">Remover</button></td>
+            </tr>
+            {{end}}
           </tbody>
         </table>
       </div>
       <div id="formContainer">
-        <form id="wishlistForm">
-          <input type="text" id="nome" placeholder="Nome do Livro" required>
-          <input type="text" id="autor" placeholder="Autor" required>
-          <input type="number" id="qtd" placeholder="Quantidade" required>
+        <form method="POST" action="insert" id="wishlistForm">
+          <input type="text" id="nome" for="nome" placeholder="Nome do Livro" required>
+          <input type="text" id="autor" for="autor" placeholder="Autor" required>
+          <input type="number" id="qtd" for="quantidade" placeholder="Quantidade" required>
+          <input type="number" id="preco" for="preco" placeholder="Preco" required>
           <button type="submit">Adicionar</button>
         </form>
       </div>
     </div>
   </main>
-  <footer></footer>
-  <script src="script.js"></script>
+  <script>
+    function onDelete(id) {
+      let resposta = alert("Tem certeza que deseja remover o livro?")
+      if (resposta) {
+        window.location = "/delete?id=" + id
+      }
+    }
+  </script>
 </body>
 
 </html>
+{{end}}

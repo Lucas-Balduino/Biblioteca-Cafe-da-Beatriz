@@ -26,7 +26,7 @@ func Index(write http.ResponseWriter, read *http.Request) {
 		log.Println("Erro ao encontrar os livros: ", err)
 		return
 	}
-	execTemplate(write, "Index", livros)
+	execTemplate(write, "wishlist", livros)
 }
 
 func Create(write http.ResponseWriter, read *http.Request) {
