@@ -6,7 +6,7 @@ import (
 
 var DB *sql.DB // vai ser usado por todos, sera aberto uma vez apenas
 
-func ConnectToDatabase() {
+func ConnectToDatabase() error {
 	connection := "user=root dbname=databasezuda password=root host=localhost sslmode=disable"
 
 	DB, err := sql.Open("databasezuda", connection)
@@ -18,4 +18,6 @@ func ConnectToDatabase() {
 	if err != nil {
 		panic(err.Error())
 	}
+
+	return nil
 }
