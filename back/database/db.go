@@ -7,7 +7,7 @@ import (
 	_ "github.com/lib/pq"
 )
 
-var DB *sql.DB // vai ser usado por todos, sera aberto uma vez apenas
+var DB *sql.DB
 
 func ConnectToDatabase() error {
 	connection := "user=root password=root dbname=databasezuda host=localhost sslmode=disable"

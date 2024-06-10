@@ -2,14 +2,33 @@ package models
 
 import (
 	"biblioteca/database"
+	"database/sql"
 )
 
+var DB *sql.DB
+
 type Livro struct {
-	Id         int
-	Nome       string
-	Autor      string
-	Quantidade int
-	Preco      float64
+	Id         int     `json:"id"`
+	Nome       string  `json:"nome"`
+	Autor      string  `json:"autor"`
+	Quantidade int     `json:"quantidade"`
+	Preco      float64 `json:"preco"`
+}
+
+func CreateLivro(l Livro) error {
+	stmt, err := database.DB.Prepare("INSERT INTO livros (nome, autor, preco, quantidade) VALUES($1,$2,$3,$4)")
+	if err != nil {
+		return err
+	}
+
+	_, err = stmt.Exec(l.Nome, l.Autor, l.Quantidade, l.Preco)
+	if err != nil {
+		return err
+	}
+
+	defer stmt.Close()
+
+	return nil
 }
 
 func SearchLivro() ([]Livro, error) {
@@ -34,13 +53,13 @@ func SearchLivro() ([]Livro, error) {
 	return livros, nil
 }
 
-func CreateLivro(nome, autor string, quantidade int, preco float64) error {
-	stmt, err := database.DB.Prepare("INSERT INTO livros (nome, descricao, preco, quantidade) VALUES(?,?,?,?)") // stmt vulgo statement eh a query preparada
+func UpdateLivro(id int, nome, autor string, quantidade int, preco float64) error {
+	stmt, err := database.DB.Prepare("UPDATE livros SET nome = $1, autor = $2, quantidade = $3, preco = $4 WHERE id = $5")
 	if err != nil {
 		return err
 	}
 
-	_, err = stmt.Exec(nome, autor, quantidade, preco)
+	_, err = stmt.Exec(nome, autor, quantidade, preco, id)
 	if err != nil {
 		return err
 	}

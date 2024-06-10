@@ -44,7 +44,7 @@
         </table>
       </div>
       <div id="formContainer">
-        <form method="POST" action="insert" id="wishlistForm">
+        <form method="POST" action="/insert" id="wishlistForm">
           <input type="text" id="nome" for="nome" placeholder="Nome do Livro" required>
           <input type="text" id="autor" for="autor" placeholder="Autor" required>
           <input type="number" id="qtd" for="quantidade" placeholder="Quantidade" required>
@@ -56,11 +56,22 @@
   </main>
   <script>
     function onDelete(id) {
-      let confirm = confirm("Tem certeza que deseja remover o livro?")
-      if (confirm) {
-        window.location = "/delete?id=" + id
-      }
+    let confirmation = confirm("Tem certeza que deseja remover o livro?");
+    if (confirmation) {
+        fetch('/delete?id=' + id, {
+            method: 'DELETE',
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            // Recarregar a página ou atualizar a lista de livros aqui
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
     }
+}
   </script>
 </body>
 

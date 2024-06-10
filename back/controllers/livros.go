@@ -2,22 +2,10 @@ package controllers
 
 import (
 	"biblioteca/models"
-	"html/template"
+	"encoding/json"
 	"log"
 	"net/http"
-	"strconv"
 )
-
-var tmpl = template.Must(template.ParseGlob("ARRUMAR O CAMINHO DO TEMPLATE")) //TODO: ARRUMAR O CAMINHO DO TEMPLATE
-
-func execTemplate(write http.ResponseWriter, tmplName string, data interface{}) {
-	err := tmpl.ExecuteTemplate(write, tmplName, data)
-	if err != nil {
-		http.Error(write, "Houve um erro ao carregar o template", http.StatusInternalServerError)
-		log.Println("Erro ao executar o template: ", err)
-		return
-	}
-}
 
 func Index(write http.ResponseWriter, read *http.Request) {
 	livros, err := models.SearchLivro()
@@ -26,40 +14,46 @@ func Index(write http.ResponseWriter, read *http.Request) {
 		log.Println("Erro ao encontrar os livros: ", err)
 		return
 	}
-	execTemplate(write, "wishlist", livros)
+	write.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(write).Encode(livros)
 }
 
 func Create(write http.ResponseWriter, read *http.Request) {
-	execTemplate(write, "Create", nil)
+	if read.Method != "POST" {
+		http.Error(write, "Método inválido", http.StatusMethodNotAllowed)
+		return
+	}
+
+	var livro models.Livro
+	err := json.NewDecoder(read.Body).Decode(&livro)
+	if err != nil {
+		http.Error(write, "Erro ao decodificar o livro", http.StatusBadRequest)
+		return
+	}
+
+	err = models.CreateLivro(livro)
+	if err != nil {
+		log.Println("Erro ao inserir o livro: ", err)
+		http.Error(write, "Erro ao inserir o livro", http.StatusInternalServerError)
+		return
+	}
+
+	write.WriteHeader(http.StatusCreated)
 }
 
 func Delete(write http.ResponseWriter, read *http.Request) {
-	idLivro := read.URL.Query().Get("id")
-	models.DeleteLivro(idLivro)
-	http.Redirect(write, read, "/", http.StatusMovedPermanently) // 301 status code
-}
-
-func Insert(write http.ResponseWriter, read *http.Request) {
-	if read.Method == "POST" {
-		nome := read.FormValue("nome")
-		autor := read.FormValue("autor")
-		quantidade := read.FormValue("quantidade")
-		preco := read.FormValue("preco")
-
-		precoConv, err := strconv.ParseFloat(preco, 64)
-
-		if err != nil {
-			log.Println("Erro ao converter o preco", err)
-		}
-
-		quantidadeConv, err := strconv.Atoi(quantidade)
-
-		if err != nil {
-			log.Println("Erro ao converter a quantidade", err)
-		}
-
-		models.CreateLivro(nome, autor, quantidadeConv, precoConv)
+	if read.Method != "DELETE" {
+		http.Error(write, "Metodo invalido", http.StatusMethodNotAllowed)
+		return
 	}
 
-	http.Redirect(write, read, "/", http.StatusMovedPermanently) // 301 status code
+	idLivro := read.URL.Query().Get("id")
+	err := models.DeleteLivro(idLivro)
+	if err != nil {
+		log.Println("Erro ao deletar o livro: ", err)
+		http.Error(write, "Erro ao deletar o livro", http.StatusInternalServerError)
+		return
+	}
+
+	write.WriteHeader(http.StatusOK)
 }
