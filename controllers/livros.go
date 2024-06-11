@@ -8,10 +8,10 @@ import (
 	"strconv"
 )
 
-var tmpl = template.Must(template.ParseGlob("ARRUMAR O CAMINHO DO TEMPLATE")) //TODO: ARRUMAR O CAMINHO DO TEMPLATE
+var tmpl = template.Must(template.ParseGlob("templates/*.html")) //TODO: ARRUMAR O CAMINHO DO TEMPLATE
 
-func execTemplate(write http.ResponseWriter, tmplName string, data interface{}) {
-	err := tmpl.ExecuteTemplate(write, tmplName, data)
+func execTemplate(write http.ResponseWriter, data interface{}) {
+	err := tmpl.ExecuteTemplate(write, "wishlist", data)
 	if err != nil {
 		http.Error(write, "Houve um erro ao carregar o template", http.StatusInternalServerError)
 		log.Println("Erro ao executar o template: ", err)

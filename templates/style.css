@@ -21,7 +21,6 @@ body {
     background-image: url('Icones/imagemApi.jpeg');
     background-size: cover;
     background-position: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #FFF4EB;
 }
 
@@ -57,9 +56,9 @@ main {
 }
 
 .fontNav {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: large;
     font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 #KaynaMain {
@@ -144,11 +143,6 @@ main {
     border-radius: 20px;
     padding: 20px;
     width: 45%;
-}
-
-.fontNav {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: large;
 }
 
 a {
