@@ -16,7 +16,7 @@ type Livro struct {
 }
 
 func CreateLivro(l Livro) error {
-	stmt, err := database.DB.Prepare("INSERT INTO livros (nome, autor, preco, quantidade) VALUES($1,$2,$3,$4)")
+	stmt, err := database.DB.Prepare("INSERT INTO livros (nome, autor, quantidade, preco) VALUES($1,$2,$3,$4)")
 	if err != nil {
 		return err
 	}

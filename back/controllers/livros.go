@@ -38,7 +38,9 @@ func Create(write http.ResponseWriter, read *http.Request) {
 		return
 	}
 
+	write.Header().Set("Content-Type", "application/json")
 	write.WriteHeader(http.StatusCreated)
+	json.NewEncoder(write).Encode(livro)
 }
 
 func Delete(write http.ResponseWriter, read *http.Request) {
